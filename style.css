@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ccc;
+  background-color: #222;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* Form & Input */
+
+.form-control {
+  display: flex;
+  justify-content: center;
+}
+
+.form-input {
+  width: 90%;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  outline: none;
+  background-color: #444;
+  color: #ccc;
+}
+
+.form-input-filter {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #777;
+  background: transparent;
+  outline: none;
+  color: #ccc;
+}
+
+/* Buttons */
+.btn {
+  background-color: #444;
+  color: #ccc;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+.btn-link {
+  font-size: 16px;
+  background-color: transparent;
+  color: #ccc;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn-clear {
+  margin-top: 20px;
+  width: 95%;
+  font-size: 16px;
+  background-color: transparent;
+  color: #ccc;
+  border: 1px solid #777;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-clear:hover {
+  background-color: #555;
+}
+
+.text-red {
+  color: #c0c0c0;
+}
+
+/* Items */
+
+.items {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items li {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  border: 1px solid #777;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px 20px;
+  font-weight: 700;
+  background-color: #444;
+  color: #ccc;
+}
+
+@media (max-width: 500px) {
+  .items li {
+    width: 100%;
+  }
+}
