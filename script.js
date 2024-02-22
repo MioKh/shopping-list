@@ -1,9 +1,13 @@
 // empty for now i'll add the functunalities after i get some rest
 
+// idk the comments is for the stuff i learned throughout making this project
+
+// dom manipulation
 const itemForm = document.getElementById("item-form");
 const itemInput = document.getElementById("item-input");
 const itemList = document.getElementById("item-list");
-
+const clearButton = document.getElementById("clear");
+// more dom manipulation and using functions to add items dynamically
 function addItem(e) {
   e.preventDefault();
 
@@ -22,7 +26,7 @@ function addItem(e) {
 
   itemList.appendChild(li);
 
-  itemInput.value = '';
+  itemInput.value = "";
 }
 
 function createButton(classes) {
@@ -39,4 +43,19 @@ function createIcon(classes) {
   return icon;
 }
 
+function removeItem(e) {
+  if (e.target.parentElement.classList.contains("remove-item")) {
+    e.target.parentElement.parentElement.remove();
+  }
+}
+
+function clearItems() {
+  while (itemList.firstChild) {
+    itemList.removeChild(itemList.firstChild);
+  }
+}
+
 itemForm.addEventListener("submit", addItem);
+//event delegation
+itemList.addEventListener("click", removeItem);
+clearButton.addEventListener("click", clearItems);
