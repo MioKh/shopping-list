@@ -9,7 +9,7 @@ const itemList = document.getElementById("item-list");
 const itemFilter = document.getElementById("filter");
 const clearButton = document.getElementById("clear");
 // more dom manipulation and using functions to add items dynamically
-function addItem(e) {
+function addItemSubmit(e) {
   e.preventDefault();
 
   const newItem = itemInput.value;
@@ -20,15 +20,38 @@ function addItem(e) {
     return;
   }
 
+  addItemToDOM(newItem);
+
+  addToLocalStorage(newItem);
+
+  checkUi();
+
+  itemInput.value = "";
+}
+
+//more specific functions
+function addItemToDOM(item) {
   const li = document.createElement("li");
-  li.appendChild(document.createTextNode(newItem));
+  li.appendChild(document.createTextNode(item));
   const button = createButton("remove-item btn-link text-red");
   li.appendChild(button);
 
   itemList.appendChild(li);
-  checkUi();
+}
 
-  itemInput.value = "";
+// local storage
+function addToLocalStorage(item) {
+  let itemsFromStorage;
+
+  if (localStorage.getItem("items") === null) {
+    itemsFromStorage = [];
+  } else {
+    itemsFromStorage = JSON.parse(localStorage.getItem("items"));
+  }
+
+  itemsFromStorage.push(item);
+
+  localStorage.setItem("items", JSON.stringify(itemsFromStorage));
 }
 
 function createButton(classes) {
@@ -88,7 +111,7 @@ function checkUi() {
   }
 }
 
-itemForm.addEventListener("submit", addItem);
+itemForm.addEventListener("submit", addItemSubmit);
 //event delegation
 itemList.addEventListener("click", removeItem);
 clearButton.addEventListener("click", clearItems);
