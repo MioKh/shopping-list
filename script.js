@@ -34,10 +34,15 @@ function addItemSubmit(e) {
   if (isEditMode) {
     const itemToEdit = itemList.querySelector(".edit-mode");
 
-    removeItemFromStorage(itemToEdit.texstContent);
+    removeItemFromStorage(itemToEdit.textContent);
     itemToEdit.classList.remove("edit-mode");
     itemToEdit.remove();
     isEditMode = false;
+  } else {
+    if (checkDuplicate(newItem)) {
+      alert("item already exists");
+      return;
+    }
   }
 
   addItemToDOM(newItem);
@@ -98,8 +103,12 @@ function onClickItem(e) {
     removeItem(e.target.parentElement.parentElement);
   } else {
     setItemToEdit(e.target);
-    console.log("test");
   }
+}
+
+function checkDuplicate(item) {
+  const itemsFromStorage = getItemsFromStorage();
+  return itemsFromStorage.includes(item);
 }
 
 function setItemToEdit(item) {
