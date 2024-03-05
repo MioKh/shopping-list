@@ -35,6 +35,13 @@ header h1 {
   padding: 20px;
 }
 
+.containerLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .edit-mode {
   color: #68bbff;
 }
@@ -122,6 +129,7 @@ header h1 {
 .items li {
   display: flex;
   justify-content: space-between;
+
   width: 90%;
   border: 1px solid #777;
   border-radius: 5px;
@@ -129,6 +137,36 @@ header h1 {
   margin: 0 5px 20px;
   font-weight: 700;
   background-color: #444;
+}
+
+.check {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+.check:checked::before {
+  transform: scale(1);
+}
+
+.check::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #68bbff;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
 @media (max-width: 500px) {
