@@ -1,5 +1,3 @@
-// empty for now i'll add the functunalities after i get some rest
-
 // idk the comments is for the stuff i learned throughout making this project
 
 // dom manipulation
@@ -57,8 +55,25 @@ function addItemSubmit(e) {
 //more specific functions
 function addItemToDOM(item) {
   const li = document.createElement("li");
-  li.appendChild(document.createTextNode(item));
+  const container = document.createElement("div");
+  container.className = "containerLeft";
+
+  const check = document.createElement("input");
+  check.type = "checkbox";
+  check.className = "check";
+
+  const checkContainer = document.createElement("div");
+  checkContainer.className = "check-container";
+  checkContainer.appendChild(check);
+
+  const text = document.createTextNode(item);
+
   const button = createButton("remove-item btn-link text-red");
+
+  container.appendChild(checkContainer);
+  container.appendChild(text);
+
+  li.appendChild(container);
   li.appendChild(button);
 
   itemList.appendChild(li);
