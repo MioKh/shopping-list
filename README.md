@@ -18,7 +18,7 @@ This is my plan for now:
 - [x] **Update Items**: Provide functionality to update item details.
 - [x] **Prevent Duplicates**: Prevent duplicate items from being added to the list.
   Ok so a quick edit i thought of some very good ideas that would actually be useful to me like daily to weekly
-- [] **Check button** : Adding a button to mark items as purchased (strikethrough text).
+- [x] **Check button** : Adding a button to mark items as purchased (strikethrough text).
 - [] **Unit Selection** : Allowing users to choose between units like kilograms and pieces (potentially expanding to other units later).
 - [] **Price input** : Enabling users to input the price of each item.
 - [] **Initial Money** : Allowing users to enter an initial amount of money and automatically calculate the total spent, updating the remaining balance.

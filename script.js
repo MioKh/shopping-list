@@ -116,10 +116,17 @@ function getItemsFromStorage() {
 function onClickItem(e) {
   if (e.target.parentElement.classList.contains("remove-item")) {
     removeItem(e.target.parentElement.parentElement);
+  } else if (e.target.classList.contains("check")) {
+    if (e.target.checked) {
+      e.target.parentElement.parentElement.classList.add("checked");
+    } else {
+      e.target.parentElement.parentElement.classList.remove("checked");
+    }
   } else {
     setItemToEdit(e.target);
   }
 }
+// basically adds a class "checked" if the checked input is checked and removes it if it is not
 
 function checkDuplicate(item) {
   const itemsFromStorage = getItemsFromStorage();
